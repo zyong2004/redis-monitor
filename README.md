@@ -1,32 +1,11 @@
-RedisLive
+redis-monitor
 ---------
 
-Visualize your redis instances, analyze query patterns and spikes.
+base RedisLive,Monitor in product enviroment:
+1. monitor multiple redis-instance in one page
+2. monitor memory,comand per sec,HitRate,keyspace, master-slave change,expire
+3. sms alert when crash , master-slave stats changed
 
-![Redis Live](https://github.com/kumarnitin/RedisLive/blob/master/design/redis-live.png?raw=true "Redis Live")
 
-Setup Instructions
-------------------
-Details and setup instructions [here](http://www.nkrode.com/article/real-time-dashboard-for-redis)
+![Redis Live](https://raw.github.com/LittlePeng/redis-monitor/master/design/redis-live.png "Redis Live")
 
-Authors
--------
-
-**Nitin Kumar**
-
-+ http://twitter.com/nkrode
-
-Contributors
-------------
-+ [splee](https://github.com/splee) (Lee McFadden)
-+ [bialecki](https://github.com/bialecki) (Andrew Bialecki)
-+ [reustle](https://github.com/reustle) (Shane Reustle)
-+ [markdube](https://github.com/markdube) (Mark Dube)
-+ [skreuzer](https://github.com/skreuzer) (Steven Kreuzer)
-+ [snikch](https://github.com/snikch) (Mal Curtis)
-+ [quiver](https://github.com/quiver) (George)
-
-License
--------
-RedisLive is released under the MIT license:
-+ www.opensource.org/licenses/MIT
