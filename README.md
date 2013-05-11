@@ -7,5 +7,5 @@ base RedisLive,Monitor in product enviroment:
 3. sms alert when crash , master-slave stats changed
 
 
-![Redis Live](https://raw.github.com/LittlePeng/redis-monitor/master/design/redis-live.png "Redis Live")
+![Redis Live](https://raw.github.com/LittlePeng/redis-monitor/master/design/redis-live.png)
 
