@@ -2,50 +2,75 @@ var BaseWidget = Backbone.View.extend({
 
   enableLogging : false
 
-, updateFrequency : 1000
+, updateFrequency : 3000
 
 , Name : "BaseWidget"
 
 , server : ""
-
+/*
 , events : {
              "click .time-period" : "ChangeTimeFrame"
            , "click .go" : "Go"          
-           }
+           }*/
 
 , init : function () {
 
       var self = this
 
-      $(document).on("ServerChange", function(e, server){      
-        self.server = server      
+      $(document).on("ServerChange", function(e, server){   
+    	  if(self.server==""){
+    		  	self.server = server; 
+    		  	//first triggle defalut
+    		  	$("#time-period-defalut").click();
+    	        //self.UpdateModel(true);
+    		}
+    	  else if(self.server !=server){
+        	  self.server = server;  
+        	  self.UpdateModelInner(true,true);
+          }       
       })    
-
-      this.timer = setInterval( function () { self.UpdateModel(true) }, this.updateFrequency )      
-
+      
+      $(".time-period").click(function(el){
+    	  self.ChangeTimeFrame(self,el);
+      });
+      $(".go").click(function(el){
+    	  self.Go(el);
+      });
       // set event listners
       this.model
         .on("error", this.error, this)
-        .on("change", this.ModelChanged, this)       
+        .on("error",this.ModelChanged,this)
+        .on("change", this.ModelChanged, this);
       
+        this.timer=null;
+  },UpdateModel:function(enableTimer) {
+	  this.UpdateModelInner(enableTimer, false)
   }
-
-, UpdateModel : function ( enableTimer ) {    
-
-    clearInterval(this.timer)    
-
+, UpdateModelInner : function ( enableTimer ,onlyOnce) {    
+	if(!onlyOnce){
+	    this.enableTimer = enableTimer;
+		if(this.timer!=null)
+	    {
+	    	clearTimeout(this.timer) 
+	    	this.timer=null
+	    }
+	}
+	
     this.startTime = new Date()
-
+    var vfrom= $(document).find('[name=from]').val();
+    var vto =$(document).find('[name=to]').val();
+    
+    //stop
+    if(vfrom.length!=0 || vto.length!=0)
+    	this.enableTimer =false;
+    
     this.model.fetch({
         data : { 
-          from : this.$el.find('[name=from]').val()
-        , to : this.$el.find('[name=to]').val()
+          from : vfrom
+        , to :  vto
         , server : this.server
       }
     })
-
-    this.enableTimer = enableTimer
-   
   }
 
 , ModelChanged : function(){
@@ -58,10 +83,10 @@ var BaseWidget = Backbone.View.extend({
 
     this.render()
 
-    if(this.enableTimer)     
+    if(this.enableTimer && this.timer==null)     
     {
       var self = this
-      this.timer = setInterval( function () { self.UpdateModel(true) }, this.updateFrequency )              
+      this.timer = setTimeout( function () { self.UpdateModel(true) }, this.updateFrequency )              
     }
 } 
 
@@ -69,11 +94,11 @@ var BaseWidget = Backbone.View.extend({
     this.UpdateModel(false)
   }
 
-, ChangeTimeFrame : function ( el ) {
+, ChangeTimeFrame : function (self, el ) {
 
     var selectionType = $(el.target).data("type")
       , timeFrame = parseInt( $(el.target).data("time") )
-
+   
     // update the dropdown's label
     $(el.target)
       .closest(".btn-group")
@@ -95,10 +120,10 @@ var BaseWidget = Backbone.View.extend({
         .siblings(".date-control")
         .css("display","none")
       
-      var self = this
-      this.$el.find('[name=from]').val("")
-      this.$el.find('[name=to]').val("")
-      this.timer = setInterval( function () { self.UpdateModel(true) }, this.updateFrequency )      
+     
+      $(document).find('[name=from]').val("")
+      $(document).find('[name=to]').val("")
+      self.timer = setTimeout( function () { self.UpdateModel(true) }, this.updateFrequency )      
     }
     // one of the template time frame selected
     // example: last 15mins, last 1 day etc    
@@ -134,11 +159,11 @@ var BaseWidget = Backbone.View.extend({
           startDate = new Date(endDate - timeFrame * 30*24*60*60000)
           break
       }
+      
 
-      this.$el.find('[name=from]').val(this.ISODateString(startDate))
-      this.$el.find('[name=to]').val(this.ISODateString(endDate))              
-      this.UpdateModel(false)
-
+      $(document).find('[name=from]').val(self.ISODateString(startDate))
+      $(document).find('[name=to]').val(self.ISODateString(endDate))              
+      self.UpdateModel(false)
     }
   }
 

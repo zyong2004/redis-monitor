@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="js/libs/bootstrap/bootstrap.css">
+   <link rel="stylesheet" href="static/css/reset.css" type="text/css" media="screen, projection" />
+        <link rel="stylesheet" href="static/css/style.css" type="text/css" media="screen, projection" />
+        <script type="text/javascript" src="static/js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="js/libs/tooltip.css">
+</head>
+<body>  
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">          
+            <a class="brand" href="./overview.html" style="background-color:red;margin-left:-20px">
+              <strong>OverView</strong>
+            </a>
+            <a class="brand" href="./index.html">
+              <strong>Live</strong>
+            </a>
+             <a class="brand" href="./settings.html">
+              <strong>Settings</strong>
+            </a>
+        </div>
+    </div>
+  </div>
+
+  <!-- Container -->
+  <div class="container-fluid" id="container-panel"> 
+  	Loading...
+  </div>
+
+<script type="text/javascript">
+	
+	$(document).ready(function(el) {
+		$.cache={}
+		
+		function update() {
+			$.ajax({
+				url : "api/infolist",
+				dataType : "json",
+				success : function(data) {
+					$.cache=data.data;
+					if($("#container-panel").find(".container").length==0){
+						onfirstLoad(data.data);
+					}else{
+						$.each(data.data, function(id,item) {
+							onupdate(id,item);
+						});
+					}
+				}
+			});
+		}
+		
+		function onfirstLoad(data){
+			var lastIp="";
+			$.each(data,function(id,item){
+				var key=item.addr;
+				
+				var node=createNode(key,item);
+				
+				//每个不同的IP另起一行
+				var currentIp=item.server_name[0];
+				if(lastIp!=currentIp && id>0)
+					node=$(node).css("clear","both");
+				lastIp=currentIp;
+				
+				$("#container-panel").append($(node));
+				var temp=key;
+				
+				$(document).find('#'+temp).find('a[name=toggle]').click(function(){
+					show(temp);
+					return false;
+				})
+			});
+		}
+		
+		function onupdate(index,item){
+			var key=item.addr;
+			var node=$(document).find('#'+key);
+			
+			if(node.length==1){
+				node= node[0];
+				$.each(item,function(k,value){
+					if (k.match(/strategy$/)) {
+					if (value == "hidden") {
+						$(node).find('#' + k).css('display','none');
+					} else {
+						$(node).find('#' + k).css('display','block');
+					}
+				} else {					
+					if (k=='status') {
+						$(node).find('#' + k).html(value)
+						.removeClass().addClass(value=='down'?'down':'up');
+					}else{
+						$(node).find('#' + k).html(value);
+					}
+				}})
+			}
+		}
+		
+		update();
+		setInterval(update, 5000);
+		
+		function createNode(id,stat) {
+			var server=stat.server_name[0] + ':' + stat.server_name[1];
+			
+		    var html = ' <div class="container" id="'+id+'">\
+			            <div class="stat">\
+			            <h1><a href="index.html?uri='+ server +'"> ' +server+'</a></h1>\
+			                <div class="info_line">\
+			                    <span class="info" style="width:50px !important">\
+			                    </span>\
+			                    <span class="' + (stat.status=='down'?'down':'up') + '" id="status">\
+			                   ' + stat.status + '\
+			                    </span>\
+		                </div>';
+		    if (stat.status != 'down') {
+		        html += ' <div id="screen_strategy">\
+			        <div id="detail">\
+			        <div class="detail_line">Slave: <span class="line_span" id="master_slaves">' + stat.master_slaves + '</span></div>\
+			       		<div class="detail_line">memory usage: <span class="line_span" id="used_memory_human">' + stat.used_memory_human + '</span></div>\
+			            <div class="detail_line">number of connected slaves: <span class="line_span" id="connected_slaves">' + stat.connected_slaves + '</span></div>\
+						 <div class="detail_line">uptime in days: <span class="line_span" id="uptime_in_days">' + stat.uptime_in_days + '</span></div>\
+			            <div class="detail_line">uptime in seconds: <span class="line_span" id="uptime_in_seconds">' + stat.uptime_in_seconds + '</span></div>\
+			        	<div class="detail_line">connected clients: <span class="line_span" id="connected_clients">' + stat.connected_clients + '</span></div>\
+			        	<a href="" name="toggle" style="margin-top:2px;display:block;float:right;"><strong>toggle detail<strong></a>\
+			        </div>\
+			    </div>';
+		    }
+		    html += '</div></div>';
+		    return html;
+		}
+		
+		function show(id){
+			var container=$('#'+id).find("#detail")
+			var list=container.find('div[name=show]');
+			if(list.length>0){
+				list.remove();
+			}else{
+				$.each($.cache,function(key,value){
+					if(value.addr==id){
+						var html='<div name="show" class="detail_line"><span class="line_span">*</span></div>';
+						$.each(value,function(k,v){
+							if (k!='status'){
+							html+='<div name="show" class="detail_line">'+k+
+							': <span class="line_span" id="'+k
+							+'">' + v + '</span></div>';
+							}
+						});
+						container.append(html);
+					}
+				});
+			}
+		}
+	});
+
+</script>
+</body>
+</html>

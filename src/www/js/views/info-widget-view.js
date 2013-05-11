@@ -18,7 +18,6 @@ var InfoWidget = BaseWidget.extend({
     this.template         = Handlebars.compile(templateSource)
     this.popOverTemplate  = Handlebars.compile(popOverTemplateSource)
     this.infoTemplate     = Handlebars.compile(infoTemplateSource)
-
   }
   
 , render: function() {
@@ -40,6 +39,5 @@ var InfoWidget = BaseWidget.extend({
                             , "content" : infoMarkup
                             , "placement" : "bottom"
                             })      
-  }
-
+}
 })

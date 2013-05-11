@@ -3,14 +3,16 @@ from BaseController import BaseController
 import tornado.ioloop
 import tornado.web
 import re
+import redis
 
 
 class InfoController(BaseController):
     def get(self):
         """Serves a GET request.
         """
-        server = self.get_argument("server")
-        redis_info = self.stats_provider.get_info(server)
+        server = self.get_argument("server").split(':')
+        
+        redis_info = self.getStatsPerServer(server)
         databases=[]
 
         for key in sorted(redis_info.keys()):
@@ -35,7 +37,7 @@ class InfoController(BaseController):
         commands_processed = redis_info['total_commands_processed']
         commands_processed = self.shorten_number(commands_processed)
         redis_info['total_commands_processed_human'] = commands_processed
-
+       
         self.write(redis_info)
 
     def shorten_time(self, seconds):
