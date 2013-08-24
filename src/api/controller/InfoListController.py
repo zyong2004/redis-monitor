@@ -5,34 +5,26 @@ import redis
 class InfoListController(BaseController):
 
     def get(self):
+        group = self.get_argument("group", None)
+        
         response = {}
         response['data']=[]
-        for server in self.read_server_config():
-            info=self.getStatsPerServer(server)
+        for server in settings.get_redis_servers():
+            if(group !=None and group!='all' and server['group'] != group):
+                continue;
             
-            info.update({
-                "addr" : info.get("server_name")[0].replace(".", "_") +  str(info.get("server_name")[1]),
+            info=self.getStatsPerServer((server['server'],server['port']))
+            
+            info.update({"addr" : info.get("server_name")[0].replace(".", "_") +  str(info.get("server_name")[1]),
             })
-    
+            info['show_name']=server['group']+'('+server['instance']+')'
+            info['group']= server['group']
             screen_strategy = 'normal'
             if info.get("status") == 'down':
                 screen_strategy = 'hidden'
     
-            info.update({
-                "screen_strategy": screen_strategy,
-            })
+            info.update({ "screen_strategy": screen_strategy,})
 
-            #key = info.get("addr")
             response["data"].append(info)
-                     
 
         self.write(response)
-        
-    def read_server_config(self):
-        server_list = []
-        redis_servers = settings.get_redis_servers()
-
-        for server in redis_servers:
-            server_list.append([server['server'],server['port']])
-
-        return server_list

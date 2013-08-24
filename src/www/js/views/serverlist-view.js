@@ -16,7 +16,7 @@ var ServerList = Backbone.View.extend({
       , self = this  
 
     $.each(model.servers,function(index, obj){
-      self.$el.append("<option value='" + obj.id + "'>" + obj.id + "</option>")
+      self.$el.append("<option value='" + obj.id + "'>" +obj.group+'('+obj.instance+')'+'['+ obj.id +']'+ "</option>")
     })
     var to=self.getQueryString('uri');
     if(to!=null && to.toString().indexOf(':')>0)

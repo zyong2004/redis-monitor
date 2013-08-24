@@ -24,7 +24,6 @@ a:hover {
     width:360px;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 40px;
     float: left;
 }
 
@@ -113,8 +112,7 @@ h2 {
 }
 
 .line_span {
-    font-weight:bold;
-    float: right;
+     float: right;
 }
 
 .hidden {

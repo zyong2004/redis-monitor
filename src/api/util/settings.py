@@ -1,21 +1,21 @@
 import json
 import os
 
-curpath=''
-
 def get_settings():
-    """Parses the settings from redis-live.conf.
-    """
-    # TODO: Consider YAML. Human writable, machine readable.
-    global curpath
-    if(curpath==''):
-        curpath=os.path.abspath('.')
-    
-    return json.load(open(curpath+ "/redis_live.conf"))
+    return json.load(open(os.path.abspath('.')+ "/redis_live.conf"))
 
 def get_redis_servers():
     config = get_settings()
-    return config["RedisServers"]
+    servers= config["RedisServers"]
+    data=[]
+    for server in servers:
+        server['ep']='%(server)s:%(port)d' % server
+        if(server.get('group')==None or server.get('group')==''):
+            server['group']='ungrouped'
+        if(server.get('instance')==None or server.get('instance')==''):
+            server['instance']=(str)(server['port'])
+        data.append(server)
+    return data
 
 def get_redis_alerturi():
     config = get_settings()

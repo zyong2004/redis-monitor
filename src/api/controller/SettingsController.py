@@ -1,12 +1,13 @@
 from BaseController import BaseController
 from api.util import settings
+import os
 
 class SettingsController(BaseController):
 
     def get(self):
         server_list=""
         for server in settings.get_redis_servers():
-            server_list+= "%(server)s:%(port)s\r\n" % server
+            server_list+= "%(server)s:%(port)s %(group)s %(instance)s\r\n" % server
         
         sms_repl=0;
         sms_stats=0;
@@ -33,12 +34,20 @@ class SettingsController(BaseController):
                 eps=server.split(':')
                 if(len(eps)!=2):
                     raise Exception('server Ip format error.');
-                ip=eps[0]
-                port=eps[1]
                 
-                servers.append({'server':ip,'port':(int)(port)})
+                ip=eps[0]
+                eps2 = eps[1].split(' ')
+                port=(int)(eps2[0])
+                group=''
+                instance=''
+                
+                if(len(eps2)>1):
+                    group=eps2[1]
+                if(len(eps2)>2):
+                    instance=eps2[2]
+                
+                servers.append({'server':ip,'port':port,'group':group,'instance':instance})
             settings.save_settings(servers, sms)
             self.write({"status":200})
         except Exception,ex:
             self.write({"status":500,"error":ex.message})
-        

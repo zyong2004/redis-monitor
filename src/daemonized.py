@@ -3,8 +3,8 @@ import sys
 
 class daemonized(object):
     def __init__(self):
-        self.curpath=''
-        
+        pass
+   
     def daemonize(self):
         pass
     
@@ -17,7 +17,7 @@ class daemonized(object):
                              % (e.errno,e.strerror))
             sys.exit(1)
  
-        os.chdir('/')
+        #os.chdir('/')
         #detach from terminal
         os.setsid()
         #file to be created?
@@ -49,9 +49,7 @@ class daemonized(object):
 
     def start_daemon(self):
         self.daemonize()
-        if(self.curpath!=''):           
-            os.chdir(self.curpath)
-            
+      
         self.run_daemon()
         
     def start(self):

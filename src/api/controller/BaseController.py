@@ -10,7 +10,7 @@ class BaseController(tornado.web.RequestHandler):
     
     def getStatsPerServer(self, server):
         try:
-            connection = redis.Redis(host=server[0], port=(int)(server[1]), db=0)
+            connection = redis.Redis(host=server[0], port=(int)(server[1]), db=0,socket_timeout=0.1)
             info = connection.info()
             # when instances down ,this maybe slowly...
             info.update({

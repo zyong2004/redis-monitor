@@ -1,0 +1,275 @@
+[33mcommit 5ee1c988b6c77dde854ed7c210326a3c9bb132ad[m
+Author:     LittlePeng <pengjilu@feinno.com>
+AuthorDate: Sat May 11 23:18:14 2013 +0800
+Commit:     LittlePeng <pengjilu@feinno.com>
+CommitDate: Sat May 11 23:18:14 2013 +0800
+
+    delete`
+
+[33mcommit 47b6c5b717f04110dac5f66f675e3bd65391197a[m
+Author:     LittlePeng <penjilu@gmail.com>
+AuthorDate: Sat May 11 22:26:14 2013 +0800
+Commit:     LittlePeng <penjilu@gmail.com>
+CommitDate: Sat May 11 22:26:14 2013 +0800
+
+    Update README.md
+
+[33mcommit e95c8a34c1b8b16badaa09edb8775872cbae6564[m
+Author:     pengjilu <pengjilu@feinno.com>
+AuthorDate: Sat May 11 22:16:44 2013 +0800
+Commit:     pengjilu <pengjilu@feinno.com>
+CommitDate: Sat May 11 22:16:44 2013 +0800
+
+    iasdf
+
+[33mcommit f5a53fb7d42796fda81e87092fe04bec6991f195[m
+Author:     pengjilu <pengjilu@feinno.com>
+AuthorDate: Sat May 11 21:46:55 2013 +0800
+Commit:     pengjilu <pengjilu@feinno.com>
+CommitDate: Sat May 11 21:46:55 2013 +0800
+
+    aa
+
+[33mcommit 88b16161c429c0ef87b98f918e0a6f7191ced503[m
+Author:     pengjilu <pengjilu@feinno.com>
+AuthorDate: Sat May 11 21:45:37 2013 +0800
+Commit:     pengjilu <pengjilu@feinno.com>
+CommitDate: Sat May 11 21:45:37 2013 +0800
+
+    readme
+
+[33mcommit 4f8a708f775a1fdfd70a408323addcff50c1c4b7[m
+Author:     pengjilu <pengjilu@feinno.com>
+AuthorDate: Sat May 11 21:34:55 2013 +0800
+Commit:     pengjilu <pengjilu@feinno.com>
+CommitDate: Sat May 11 21:34:55 2013 +0800
+
+    pic
+
+[33mcommit 3fd9ea1c4241ed1496f965ee9c5b6a69f1177252[m
+Author:     pengjilu <pengjilu@feinno.com>
+AuthorDate: Sat May 11 21:30:36 2013 +0800
+Commit:     pengjilu <pengjilu@feinno.com>
+CommitDate: Sat May 11 21:30:36 2013 +0800
+
+    two
+
+[33mcommit 33f93016da193f9f53cbc68f83a14cc8f49970d1[m
+Author:     pengjilu <pengjilu@feinno.com>
+AuthorDate: Sat May 11 21:29:14 2013 +0800
+Commit:     pengjilu <pengjilu@feinno.com>
+CommitDate: Sat May 11 21:29:14 2013 +0800
+
+    first
+
+[33mcommit 285fc4b1c8e3a3438e7a9cdbd13a2f826baa8032[m
+Merge: f328e53 f8a31a3
+Author:     Nitin Kumar <kumarnitin@live.com>
+AuthorDate: Mon Oct 29 11:34:10 2012 -0700
+Commit:     Nitin Kumar <kumarnitin@live.com>
+CommitDate: Mon Oct 29 11:34:10 2012 -0700
+
+    Merge pull request #38 from josegonzalez/requirements
+    
+    Added a requirements.txt
+
+[33mcommit f328e539c8345a2972a1921d7ee7751560914743[m
+Author:     Nitin Kumar <kumarnitin@live.com>
+AuthorDate: Mon Oct 29 11:08:34 2012 -0700
+Commit:     Nitin Kumar <kumarnitin@live.com>
+CommitDate: Mon Oct 29 11:08:34 2012 -0700
+
+    added support for tornado's command line options
+
+[33mcommit f8a31a3c0a5b9be5989638d155523490c44bf88d[m
+Author:     Jose Diaz-Gonzalez <myaccounts@savant.be>
+AuthorDate: Wed Aug 8 12:02:21 2012 -0400
+Commit:     Jose Diaz-Gonzalez <myaccounts@savant.be>
+CommitDate: Wed Aug 8 12:02:21 2012 -0400
+
+    Added a requirements.txt
+    
+    Note that the redis version is not specified, so it is possible to
+    setup a virtualenv with whatever redis version you see fit.
+
+[33mcommit 3f1160f6b517d3606c13554cdb44346a1a3b62fe[m
+Author:     kumarnitin <kumarnitin@live.com>
+AuthorDate: Sat Aug 4 04:41:08 2012 -0700
+Commit:     kumarnitin <kumarnitin@live.com>
+CommitDate: Sat Aug 4 04:41:08 2012 -0700
+
+    Update README.md
+
+[33mcommit 46aa122e5d5527f49a08189ed2150bb31791ca9e[m
+Author:     kumarnitin <kumarnitin@live.com>
+AuthorDate: Mon Jul 16 19:22:11 2012 -0700
+Commit:     kumarnitin <kumarnitin@live.com>
+CommitDate: Mon Jul 16 19:22:11 2012 -0700
+
+    Update master
+
+[33mcommit 5cac95816fb5c436d9024b2b44405e9cbd0c0508[m
+Merge: f2bfb80 555f261
+Author:     kumarnitin <kumarnitin@live.com>
+AuthorDate: Mon Jul 16 19:19:22 2012 -0700
+Commit:     kumarnitin <kumarnitin@live.com>
+CommitDate: Mon Jul 16 19:19:22 2012 -0700
+
+    Merge pull request #30 from quiver/cmd_option
+    
+    add support for passing logging options to redis-live.py
+
+[33mcommit 555f261d26acc473a2e9aa6f85e615f290c4b104[m
+Author:     george <george@ubu1204.(none)>
+AuthorDate: Mon Jul 16 18:33:34 2012 +0900
+Commit:     george <george@ubu1204.(none)>
+CommitDate: Mon Jul 16 18:33:34 2012 +0900
+
+    add support for passing logging options to redis-live.py
+    
+    * example usage
+    $ ./redis-live.py --logging=debug
+
+[33mcommit f2bfb80d969ea8ce0a0c5e922407cf52680da4b0[m
+Author:     Nitin Kumar <kumarnitin@live.com>
+AuthorDate: Sun Jul 15 18:39:54 2012 -0700
+Commit:     Nitin Kumar <kumarnitin@live.com>
+CommitDate: Sun Jul 15 18:39:54 2012 -0700
+
+    fixed a bug
+
+[33mcommit 1ef583150fe30c55de05cb884823d4666cb232e2[m
+Author:     kumarnitin <kumarnitin@live.com>
+AuthorDate: Sun Jul 15 17:54:19 2012 -0700
+Commit:     kumarnitin <kumarnitin@live.com>
+CommitDate: Sun Jul 15 17:54:19 2012 -0700
+
+    Update master
+
+[33mcommit a4bb6c7228f077a972b648c241c88abc3f5b8d09[m
+Author:     Nitin Kumar <kumarnitin@live.com>
+AuthorDate: Sun Jul 15 17:39:50 2012 -0700
+Commit:     Nitin Kumar <kumarnitin@live.com>
+CommitDate: Sun Jul 15 17:39:50 2012 -0700
+
+    Fixed a few bugs
+
+[33mcommit 1bbbf16ab8c50ddc60f46be5dc9264e05bc9978c[m
+Author:     Lee McFadden <spleeman@gmail.com>
+AuthorDate: Sun Jul 15 13:27:16 2012 -0700
+Commit:     Lee McFadden <spleeman@gmail.com>
+CommitDate: Sun Jul 15 13:27:16 2012 -0700
+
+    Fixed a few bugs.
+
+[33mcommit f7911212ce05a4d47f4f3e4c34046e86b9099225[m
+Author:     Lee McFadden <spleeman@gmail.com>
+AuthorDate: Sun Jul 15 13:09:23 2012 -0700
+Commit:     Lee McFadden <spleeman@gmail.com>
+CommitDate: Sun Jul 15 13:09:23 2012 -0700
+
+    Last few tweaks in controllers
+
+[33mcommit 84efb5ae98b09599b0756f6ad99fc1c26387ccae[m
+Author:     Lee McFadden <spleeman@gmail.com>
+AuthorDate: Sun Jul 15 13:02:54 2012 -0700
+Commit:     Lee McFadden <spleeman@gmail.com>
+CommitDate: Sun Jul 15 13:02:54 2012 -0700
+
+    PEP8 for sqliteprovider
+
+[33mcommit 75dd0bcdcb87139bd47d3df932961c5f9b2c36c6[m
+Author:     Lee McFadden <spleeman@gmail.com>
+AuthorDate: Sun Jul 15 11:40:01 2012 -0700
+Commit:     Lee McFadden <spleeman@gmail.com>
+CommitDate: Sun Jul 15 11:40:01 2012 -0700
+
+    PEP8 method names and a few tweaks
+
+[33mcommit 5bc87ce3a4ef8577b2d7605a74e3bf75e14bdfd7[m
+Author:     Lee McFadden <spleeman@gmail.com>
+AuthorDate: Sun Jul 15 11:16:42 2012 -0700
+Commit:     Lee McFadden <spleeman@gmail.com>
+CommitDate: Sun Jul 15 11:16:42 2012 -0700
+
+    PEP8 for TopKeysController
+
+[33mcommit 84280468997fa4f3a2e85e1fef55f043b104052b[m
+Author:     Lee McFadden <spleeman@gmail.com>
+AuthorDate: Sun Jul 15 11:13:12 2012 -0700
+Commit:     Lee McFadden <spleeman@gmail.com>
+CommitDate: Sun Jul 15 11:13:12 2012 -0700
+
+    PEP8 for TopCommandsController
+
+[33mcommit 95f3c67bbd7d4ff1283d7eec0462e24c4690f63b[m
+Author:     Lee McFadden <spleeman@gmail.com>
+AuthorDate: Sun Jul 15 11:09:48 2012 -0700
+Commit:     Lee McFadden <spleeman@gmail.com>
+CommitDate: Sun Jul 15 11:09:48 2012 -0700
+
+    Missed a few spots.
+
+[33mcommit d145c7da870a0162fb97d117b30364b99e65b381[m
+Author:     Lee McFadden <spleeman@gmail.com>
+AuthorDate: Sun Jul 15 11:08:52 2012 -0700
+Commit:     Lee McFadden <spleeman@gmail.com>
+CommitDate: Sun Jul 15 11:08:52 2012 -0700
+
+    PEP8 for MemoryController
+
+[33mcommit 9b991dd158399ea16db5352567c8b001f2be1072[m
+Author:     Lee McFadden <spleeman@gmail.com>
+AuthorDate: Fri Jul 13 19:01:19 2012 -0700
+Commit:     Lee McFadden <spleeman@gmail.com>
+CommitDate: Fri Jul 13 19:01:19 2012 -0700
+
+    PEP8 for InfoController
+
+[33mcommit 74495c0683c933db3a3d7541811dc52c610dec67[m
+Author:     Lee McFadden <spleeman@gmail.com>
+AuthorDate: Fri Jul 13 18:42:51 2012 -0700
+Commit:     Lee McFadden <spleeman@gmail.com>
+CommitDate: Fri Jul 13 18:42:51 2012 -0700
+
+    Missed a spot...
+
+[33mcommit 0e3f9142abedee4557960346314b3dde85695225[m
+Author:     Lee McFadden <spleeman@gmail.com>
+AuthorDate: Fri Jul 13 18:41:22 2012 -0700
+Commit:     Lee McFadden <spleeman@gmail.com>
+CommitDate: Fri Jul 13 18:41:22 2012 -0700
+
+    PEP8'ed BaseController and dependencies
+
+[33mcommit db720a69c8ec3b78b1882bafa2750991f889ce04[m
+Author:     Lee McFadden <spleeman@gmail.com>
+AuthorDate: Fri Jul 13 17:53:50 2012 -0700
+Commit:     Lee McFadden <spleeman@gmail.com>
+CommitDate: Fri Jul 13 17:53:50 2012 -0700
+
+    PEP8'ed the internal code of this handler. Methods are up next.
+
+[33mcommit 24205a36e7526cad329f1fa97b69478b9619a412[m
+Author:     Lee McFadden <spleeman@gmail.com>
+AuthorDate: Fri Jul 13 17:27:50 2012 -0700
+Commit:     Lee McFadden <spleeman@gmail.com>
+CommitDate: Fri Jul 13 17:27:50 2012 -0700
+
+    Made RedisLiveSettings and dependencies more pythonic
+
+[33mcommit 205e7d995ae68a9e3ec1a235779738554201773e[m
+Author:     Lee McFadden <spleeman@gmail.com>
+AuthorDate: Fri Jul 13 15:09:00 2012 -0700
+Commit:     Lee McFadden <spleeman@gmail.com>
+CommitDate: Fri Jul 13 15:09:00 2012 -0700
+
+    Fixed whitespace
+
+[33mcommit ed2041c4b103c2b9e9c95d90d3a904208c124918[m
+Author:     Nitin Kumar <kumarnitin@live.com>
+AuthorDate: Sun Jul 1 00:43:12 2012 -0700
+Commit:     Nitin Kumar <kumarnitin@live.com>
+CommitDate: Sun Jul 1 00:43:12 2012 -0700
+
+    fix for sqlite database lock issue. closed #7

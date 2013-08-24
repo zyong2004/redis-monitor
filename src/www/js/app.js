@@ -18,11 +18,6 @@ var App = {
           , model : new InfoWidgetModel()
         })
 
-//        var memoryWidget = new MemoryWidget({
-//            el : $("#memory-widget-placeholder")
-//          , model : new MemoryWidgetModel()
-//        })  
-
         var commandsWidget = new CommandsWidget({            
             el : $("#commands-widget-placeholder")
           , model : new CommandsWidgetModel()
@@ -31,16 +26,7 @@ var App = {
             el : $("#status-widget-placeholder")
           , model : new StatusWidgetModel()
         }) 
-        /*
-        var topCommandsWidget = new TopCommandsWidget({            
-            el : $("#top-commands-widget-placeholder")
-          , model : new TopCommandsWidgetModel()
-        })        
-
-        var topKeysWidget = new TopKeysWidget({            
-            el : $("#top-keys-widget-placeholder")
-          , model : new TopKeysWidgetModel()
-        })     */   
+       
     }
 
   , RegisterPartials : function(){

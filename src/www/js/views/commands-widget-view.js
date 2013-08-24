@@ -108,5 +108,10 @@ var CommandsWidget = BaseWidget.extend({
       
       if($(this.chart4.cd).parent().css("display") !="none")
       this.chart4.draw(this.dataTable4, options2)
+      
+      if($('#cb_slowlog').attr("checked")=="checked"){
+      		$('#cb_slowlog').trigger('click');
+      		$('#cb_slowlog').attr('checked','checked');
+      	}
     }
 })
