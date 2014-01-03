@@ -21,18 +21,18 @@
 
 	<!-- Container -->
 	<div class="container-fluid">
-	 Redis 实例列表:<br/>
+	 Redis instances list<br/>
 	<textarea  id="redis-instances-list" rows="10" cols="30" style="margin: 0px; width: 613px; height: 463px;"></textarea>
 	<br />
 	<br />
-	短信报警：
+	sms alert:
 	<br />
-	<input type="checkbox" id="sms-master" /> 主从切换报警
+	<input type="checkbox" id="sms-master" /> master-slave change
 	<br />
-	<input type="checkbox" id="sms-master-stat" /> 主从状态变化报警
+	<input type="checkbox" id="sms-master-stat" /> master-slave status
 	<br />
 	<br/>
-	<input type="button" id="save-button" value="修改" /> <span id="save-status-msg" style="color:red;"></span>
+	<input type="button" id="save-button" value="save" /> <span id="save-status-msg" style="color:red;"></span>
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function(el) {
@@ -65,9 +65,9 @@
 				data:d,
 				success:function(data){
 					if(data.status==200)
-						$('#save-status-msg').html('*保存成功');
+						$('#save-status-msg').html('*save success');
 					else
-						$('#save-status-msg').html('*保存出错:'+data.error);
+						$('#save-status-msg').html('*save failed:'+data.error);
 					setTimeout(function(){$('#save-status-msg').html('');},1000)
 				}
 			})
